@@ -27,9 +27,9 @@
     dest: /usr/share/nginx/html
     remote_src: yes
 
-- name: copy expense conf
-  ansible.builtin.copy:
-    src: expense.conf
+- name: copy expense conf    ##copy only works for files without variables , so here we use template
+  ansible.builtin.template:        #ansible.builtin.copy
+    src: expense.conf.j2       #src: expense.conf
     dest: /etc/nginx/default.d/expense.conf
 
 - name: restart nginx
