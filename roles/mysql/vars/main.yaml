@@ -1,2 +1,2 @@
-mysql_root_password: ExpenseApp@1
-login_host: mysql.narayanarao.cloud
+# mysql_root_password: ExpenseApp@1
+# login_host: mysql.narayanarao.cloud    #root_password and host are toggled because we use ansible-vaults and these are placed in "credential_mysql.yaml" file in ansible server

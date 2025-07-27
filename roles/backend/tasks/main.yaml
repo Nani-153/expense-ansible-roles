@@ -17,8 +17,8 @@
     name: expense
 
 - name: import tasks from common role
-  # tags:
-  # - deployment
+  tags:
+  - deployment
   ansible.builtin.import_role:
     name: common
     tasks_from: app-pre-req
@@ -40,6 +40,8 @@
 #     remote_src: yes
 
 - name: install dependencies
+  tags:                           # tags are useful whenever version updated   -->@ ansible-plabook backend.yaml -t diployment ;runs diployment related tasks
+  - deployment                                                                                    # < file-name > 
   ansible.builtin.command: npm install
   args:
     chdir: /app
@@ -66,6 +68,8 @@
     state: import
 
 - name: daemon reload
+  tags:
+  - deployment
   ansible.builtin.systemd_service:
     daemon_reload: true
     state: restarted

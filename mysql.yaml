@@ -1,7 +1,7 @@
 - name: configure mysql server
   hosts: mysql
-  become: yes #remote server
-  # vars_files:
-  # - /var/expense/credentials_mysql.yaml #ansible server
+  become: yes   #belongs to remote server
+  vars_files:                       #for ansible_vault
+  - /var/expense/credentials_mysql.yaml     #this is in ansible server,so it needs root & read access -->@ sudo chmod +r /var/expense/credentials_mysql.yaml
   roles:
   - mysql
